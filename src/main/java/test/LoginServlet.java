@@ -42,9 +42,10 @@ public class LoginServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
             if (rs.next()) {
-                out.println("Login successful! Welcome, " + username);
+                response.sendRedirect("homepage.html");
             } else {
-                out.println("Invalid username or password.");
+                response.sendRedirect("login.html");
+                request.setAttribute("errorMessage", "Invalid username or password.");
             }
             
             rs.close();
