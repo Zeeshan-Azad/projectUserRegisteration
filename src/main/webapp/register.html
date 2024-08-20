@@ -3,6 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome</title>
+
+ <script>
+        window.onload = function() {
+            // Function to get query parameter by name
+            function getQueryParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            // Display the message if present in the query parameters
+            const message = getQueryParameter("message");
+            if (message) {
+                document.getElementById("message").textContent = decodeURIComponent(message);
+            }
+        };
+    </script>
+    
 </head>
 <body>
 	 <h2>Register Here</h2>
@@ -18,5 +35,8 @@
 
         <input type="submit" value="Register">
     </form>
+    
+    <!-- Display message from servlet -->
+    <p id="message" style="color:red;"></p>
 </body>
 </html>
